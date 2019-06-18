@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <title>Diary App</title>
+            <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+            <link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+    </head>
+    <body  style="background: linear-gradient(to right, #f7a8ac, #f7b9cd, #d68282, #bc7387);">
+         <div class="ui fixed inverted menu">
+                 <div class="ui container">
+                        <div class= "header item">INDEX </div> 
+                        <a href="/diary" class="item">HOME</a>
+                        <a href="/diary/new" class="item">New Page</a>
+                        
+                        <a href="/logout" class="item">Log out</a>
+                </div>
+        </div>
+<div class="ui main text container segment">
+    <div class = "ui huge header">EDIT :  <%= page.title %></div>
+    
+    <form class="ui form" action="/diary/<%= page._id%>?_method=PUT" enctype="multipart/form-data" method="POST">
+        <div class="field">
+            <label >Title</label>
+            <input type="text" name="title" value="<%=page.title%>">
+        </div>
+        <div class="field">
+                <label >Image</label>
+                <input type="file" id="files" name="image" placeholder="image"  >
+        </div>
+       
+        <div class="field">
+                <label >Page Content</label>
+                <textarea name="bodyy" ><%= page.body %></textarea>
+               
+        </div>
+            
+        <input class="ui inverted big green button" type="submit">
+    
+   
+    
+    
+    </form>
+</div>
+</body>
+    
+</html>
